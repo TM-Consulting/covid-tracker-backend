@@ -1,4 +1,4 @@
-var countryService = require("../Services/countries.service");
+var countryService = require("../services/countries.service");
 
 const getCountries = (req, res) => {
   return res.send(countryService.getCountries());
