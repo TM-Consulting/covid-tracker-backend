@@ -1,13 +1,6 @@
-const covidData = require("../data/covid-tracker");
-const getStatistics = (req) => {
-  return covidData.covidDataStats[req.query.country][
-    req.query.city ?? "default"
-  ];
-};
-const getTracks = (req) => {
-  return covidData.covidDataTracks[req.query.country][
-    req.query.city ?? "default"
-  ];
-};
+const data = require("../utils/data-parse");
+const getStatistics = (req) =>
+  data.mockedData(req.query.country, req.query.city, false);
+const getTracks = (req) => data.mockedData(req.query.country, req.query.city);
 
 module.exports = { getStatistics, getTracks };

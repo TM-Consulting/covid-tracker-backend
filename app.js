@@ -1,4 +1,5 @@
 const express = require("express");
+const variables = require("./config/variables");
 const app = express();
 app.use(express.json());
 var cors = require("cors");
@@ -14,6 +15,6 @@ app.get("/", (req, res) => {
 app.use("/api/country", countriesRouter);
 app.use("/api", trackerRouter);
 
-app.listen(port, () =>
-  console.log(`Expresso ☕ is on Port ${port} Ctrl + C to Stop `)
+app.listen(variables.PORT, () =>
+  console.log(`Expresso ☕ is on Port ${variables.PORT} Ctrl + C to Stop `)
 );

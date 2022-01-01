@@ -1,9 +1,12 @@
 var countryService = require("../services/countries.service");
 
-const getCountries = (req, res) => {
-  return res.send(countryService.getCountries());
+const getCountries = async (req, res) => {
+  const countries = await countryService.getCountries();
+  return res.send(countries);
 };
-const getCities = (req, res) => {
-  return res.send(countryService.getCities(req.params.id));
+
+const getCities = async (req, res) => {
+  const cities = await countryService.getCities(req.params.id);
+  return res.send(cities);
 };
 module.exports = { getCountries, getCities };
